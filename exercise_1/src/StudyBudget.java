@@ -1,11 +1,14 @@
 public class StudyBudget {
+    private static final int BLOCK_MINUTES=30;
+    private static final int FEE_PER_BLOCK = 5;
+    private static final double DISCOUNT_RATE = 0.20;
     public static void main (String[] args) {
         String student_name = " Ana Lee ";
         boolean membership = true;
         int minutes_studied = 95;
-        int complete_blocks = minutes_studied/30;
-        int remaining_minutes = minutes_studied % 30;
-        double blocks_price = complete_blocks * 5;
+        int complete_blocks = minutes_studied/BLOCK_MINUTES;
+        int remaining_minutes = minutes_studied % BLOCK_MINUTES;
+        double blocks_price = complete_blocks * FEE_PER_BLOCK;
         double discount = 0;
         String clean_student_name = student_name.trim();
         if (clean_student_name.isEmpty() || minutes_studied <= 0){
@@ -26,7 +29,7 @@ public class StudyBudget {
             System.out.printf("Base fee: $%.2f%n", blocks_price);
             if (membership == true && complete_blocks >= 4) {
                 System.out.println("Eligible for discount? Yes!");
-                discount = blocks_price * 0.20;
+                discount = blocks_price * DISCOUNT_RATE;
             }else{
                 System.out.println("Eligible for discount? No");
             }
