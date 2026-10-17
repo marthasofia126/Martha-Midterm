@@ -20,7 +20,14 @@ public class AttendanceAnalyzer{
                     2. Find Room
                     3. Exit """);
             String choice = input.nextLine();
-            users_choice = Integer.parseInt(choice);
+            try {
+                users_choice = Integer.parseInt(choice);
+
+            } catch(NumberFormatException e){
+                System.out.println("Invalid output, please try again.");
+                continue;
+            }
+
 
             switch(users_choice){
                 case 1:
@@ -37,7 +44,7 @@ public class AttendanceAnalyzer{
                     }
                     System.out.println("\nGENERAL STATISTICS\n");
                     System.out.println("Total visits: "+ total);
-                    System.out.println("Average attendance: " + total/NUMBER_OF_CELLS);
+                    System.out.printf("Average attendance: %.2f%n", total/NUMBER_OF_CELLS );
                     int [] total_of_rooms = roomTotals(rooms);
                     int busiest_room=0;
                     int number_of_busy_rooms=0;
@@ -58,7 +65,13 @@ public class AttendanceAnalyzer{
                     int rooms_choice_int;
                     System.out.println("Which room would you like a summary of? (1-3): ");
                     String rooms_choice = input.nextLine();
-                    rooms_choice_int = Integer.parseInt(rooms_choice);
+                    try{
+                        rooms_choice_int = Integer.parseInt(rooms_choice);
+                    }catch(NumberFormatException e){
+                        System.out.println("Invalid input, please try again.");
+                        continue;
+
+                }
                     int room_index = rooms_choice_int - 1;
 
                     if (rooms_choice_int >=1 && rooms_choice_int <=3){
