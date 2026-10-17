@@ -5,7 +5,6 @@ public class AttendanceAnalyzer{
     public static void main (String [] args){
         boolean quitting = true;
         int users_choice;
-        double total=0;
         int highest_visit = 0;
         int [][] rooms = {
                 {2,0,3,1},
@@ -13,6 +12,7 @@ public class AttendanceAnalyzer{
                 {0,2,2,1}};
 
         while (quitting) {
+            double total=0;
             Scanner input = new Scanner(System.in);
             System.out.println("""
                     \nMENU: 
